@@ -108,11 +108,11 @@ public extension ASProtocol where Self:ASModel{
         
     }
     
-    static func findAll(_ attributeAndValueDic:Dictionary<String,Any?>,orders:[String:Bool])->Array<Self>{
-        return findAll(attributeAndValueDic, orders: orders)
+    static func findAll(_ attributeAndValueDic:Dictionary<String,Any?>, orders:[String:Bool])->Array<Self>{
+        return findAll(attributeAndValueDic, orders)
     }
     
-    static func findAll(_ attributeAndValueDic:Dictionary<String,Any?>?,_ orders:[String:Bool]? = nil)->Array<Self>{
+    static func findAll(_ attributeAndValueDic:Dictionary<String,Any?>?, _ orders:[String:Bool]? = nil)->Array<Self>{
         
         
         var results:Array<Self> = Array<Self>()

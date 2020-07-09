@@ -25,13 +25,13 @@ public extension ASProtocol where Self:ASModel{
             
             if type(of: self).isSaveDefaulttimestamp {
                 
-                if self.created_at != nil && self.created_at.int64Value > 0 {
+                if self.created_at.int64Value > 0 {
                     settersInsert.append(type(of: self).created_at <- self.created_at)
                 }else{
                     settersInsert.append(type(of: self).created_at <- timeinterval)
                 }
                 
-                if self.updated_at != nil && self.updated_at.int64Value > 0 {
+                if self.updated_at.int64Value > 0 {
                     settersInsert.append(type(of: self).updated_at <- self.updated_at)
                 }else{
                     settersInsert.append(type(of: self).updated_at <- timeinterval)
@@ -76,13 +76,13 @@ public extension ASProtocol where Self:ASModel{
                     var settersInsert = model.buildSetters(skips: [PRIMARY_KEY, CREATE_AT_KEY, UPDATE_AT_KEY])
                     
                     if isSaveDefaulttimestamp {
-                        if model.created_at != nil && model.created_at.int64Value > 0 {
+                        if model.created_at.int64Value > 0 {
                             settersInsert.append(created_at <- model.created_at)
                         }else{
                             settersInsert.append(created_at <- timeinterval)
                         }
                         
-                        if model.updated_at != nil && model.updated_at.int64Value > 0 {
+                        if model.updated_at.int64Value > 0 {
                             settersInsert.append(updated_at <- model.updated_at)
                         }else{
                             settersInsert.append(updated_at <- timeinterval)
@@ -327,10 +327,9 @@ public extension ASProtocol where Self:ASModel{
             
             var created_at_value = timeinterval
             let updated_at_value = timeinterval
-            if created_at != nil {
-                created_at_value = created_at
-            }
             
+            created_at_value = created_at
+
             var settersInsert = buildSetters(skips: [type(of: self).PRIMARY_KEY, type(of: self).CREATE_AT_KEY, type(of: self).UPDATE_AT_KEY])
             
             if type(of: self).isSaveDefaulttimestamp{
